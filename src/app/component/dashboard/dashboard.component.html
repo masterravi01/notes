@@ -1,0 +1,76 @@
+<div class="container-fluid bg-light">
+<div class="container bg-light">
+    <div class="row mt-4">
+       
+        <div class="col-md-6 bg-white" >
+<div class="card bg-warning">
+    <h4 class="text-white ps-3 pt-2 pb-2">Create Note</h4>
+</div>
+        </div>
+        <div class="col">
+        </div>
+<div class="col-md-6 shadow ">
+  
+    <div class="input-group mb-3">
+      
+        <input type="text" class="form-control" name="task" [(ngModel)]="addTaskValue" placeholder="Enter Title" >
+        <input type="text" class="form-control" name="work" [(ngModel)]="addWorkValue" placeholder="Enter Note" >
+ 
+        <button class="btn btn-outline-success" type="button" (click)="addTask()" >Save</button>
+      </div>
+</div>
+
+<h4 class="text-primary mt-4">Notes:</h4>
+<div style="overflow-y: auto;height: 350px; ">
+    <div class="m-3 " *ngFor="let task of taskArr">
+<div class="p-2 shadow border">
+    <div class="input-group row ps-3">
+        <div class="card col-md-10 border-0">
+          <!-- {{task.id}} -->
+          <strong>{{task.task_name}}  </strong> 
+           <hr >
+           {{task.task_work}}
+        </div>
+        <button class="btn btn-outline-primary col" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="call(task)">Edit</button>
+        <div class="btn btn-outline-danger col"  (click)="deleteTask(task)">Delete</div>
+    </div>
+</div>
+</div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        
+        <div class="modal-body">
+          <form>
+             <div class="input-group mb-3">
+            
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Title</label>
+              <input type="text" class="form-control" name="task" [(ngModel)]="editTaskValue"  >
+              
+              </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Note</label>
+              <input type="text" class="form-control" name="work" [(ngModel)]="editWorkValue"  >
+              
+            </div>
+            
+            <button class="btn btn-outline-success" data-bs-dismiss="modal" type="button" (click)="editTask()" >Update</button>
+             </div>>
+          </form>
+            
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>        
+<div class="col">
+        </div>
+    </div>
+</div>
+
+</div>
